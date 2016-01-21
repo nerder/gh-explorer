@@ -1,16 +1,12 @@
 import React from 'react';
-import { Route } from 'react-router-transition-context';
+import { Route, DefaultRoute } from 'react-router-transition-context';
 import App from './AppRoute';
-
-class Useless extends React.Component {
-  render() {
-    return <div>I'm useless</div>;
-  }
-}
+import List from './ListRoute';
+import Detail from './DetailRoute';
 
 export default (
-  <Route name="main" path="/">
-    <Route name="counter" handler={App} path="counter" />
-    <Route name="useless" handler={Useless} path="useless" />
+  <Route name="main" path="/" handler={App}>
+    <DefaultRoute handler={List} />
+    <Route name="details" path="detail/:detailId" handler={Detail} />
   </Route>
 );
