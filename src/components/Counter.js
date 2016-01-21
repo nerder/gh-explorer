@@ -13,7 +13,7 @@ export default class Counter extends React.Component {
     return {
       minutes,
       seconds: seconds - (60 * minutes)
-    }
+    };
   }
 
   template({ minutes, seconds }) {

@@ -24,6 +24,6 @@ export default class AppRoute extends React.Component {
   }
 
   render() {
-    return <Counter seconds={this.state.counter} />
+    return <Counter seconds={this.state.counter} />;
   }
 }
