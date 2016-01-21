@@ -1,6 +1,5 @@
 import React from 'react';
-import { props } from 'tcomb-react';
-import { skinnable, t } from 'revenge';
+import { props, skinnable, t } from 'revenge';
 
 @skinnable()
 @props({
