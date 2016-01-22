@@ -20,7 +20,7 @@ export default class Detail extends React.Component {
   template({ detail }) {
     return (
       <div>
-        I'm the datail nummber # {detail}
+        I'm the datail number # {detail}
         <div>
           <Link to="main">&lt;= Come Home Lessie</Link>
         </div>
