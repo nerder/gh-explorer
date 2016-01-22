@@ -2,12 +2,10 @@ import React from 'react';
 import { props, skinnable, t } from 'revenge';
 import { Link } from 'react-router-transition-context';
 
-
 @skinnable()
 @props({
   detail: t.String
 })
-
 export default class Detail extends React.Component {
 
   getLocals() {

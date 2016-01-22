@@ -6,7 +6,6 @@ import { Link } from 'react-router-transition-context';
 @props({
   list: t.Array
 })
-
 export default class List extends React.Component {
 
   getLocals() {
