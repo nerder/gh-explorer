@@ -23,13 +23,13 @@ export default class App extends React.Component {
             className='nav-bar'
             width='100%'
             basis={80}
-            style={{backgroundColor:'blue'}}
+            style={{backgroundColor:'#2196F3'}}
           />
           <FlexView
             className='result'
             grow
             width='100%'
-            style={{backgroundColor:'red', maxWidth: 1000}}
+            style={{backgroundColor:'#607D8B', maxWidth: 1000}}
           >
             <RouteHandler />
           </FlexView>
