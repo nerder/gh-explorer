@@ -48,12 +48,13 @@ module.exports = extend({}, base, {
     loaders: base.module.loaders.concat([
       {
         test: /\.css$/,
+        include: [paths.SRC, paths.NODE_MODULES],
         loader: ExtractTextPlugin.extract('style', 'css')
       },
       // SASS
       {
         test: /\.scss$/,
-        exclude: paths.THEME_VARIABLES,
+        include: [paths.SRC, paths.NODE_MODULES],
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap!resolve-url?sourceMap!sass?sourceMap')
       }
     ])

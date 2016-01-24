@@ -34,15 +34,14 @@ module.exports = extend({}, base, {
       // style!css loaders
       {
         test: /\.css?$/,
-        loaders: ['style', 'css'],
-        // include: [paths.SRC]
+        include: [paths.SRC, paths.NODE_MODULES],
+        loaders: ['style', 'css']
       },
       // SASS loaders
       {
         test: /\.scss?$/,
-        exclude: paths.THEME_VARIABLES,
-        loaders: ['style', 'css', 'resolve-url', 'sass?sourceMap'],
-        // include: [paths.SRC]
+        include: [paths.SRC, paths.NODE_MODULES],
+        loaders: ['style', 'css', 'resolve-url', 'sass?sourceMap']
       }
     ])
   })
