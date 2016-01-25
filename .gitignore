@@ -4,7 +4,7 @@ config*.json
 config*.json~
 coverage
 node_modules
-build/*
+build
 mocha.json
 morpheus.jar
 
