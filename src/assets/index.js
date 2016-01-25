@@ -1,3 +1,3 @@
-require('normalize-css/normalize.css');
-require('buildo-react-components/src/flex/flexView.scss');
-require('./main.scss');
+import 'normalize-css/normalize.css';
+import 'buildo-react-components/src/flex/flexView.scss';
+import './main.scss';

@@ -46,7 +46,6 @@ module.exports = {
       {
         test: /\.jsx?$/, // test for both js and jsx
         loaders: ['babel?stage=0&loose'],
-        exclude: [paths.ASSETS],
         include: [paths.SRC, /buildo-react-components/, /react-intl-hoc/]
       },
       // require .json
