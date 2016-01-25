@@ -20,14 +20,16 @@ export default class App extends React.Component {
           hAlignContent='center'
         >
           <FlexView
+            className='nav-bar'
             width='100%'
             basis={80}
             style={{backgroundColor:'#2196F3'}}
           />
           <FlexView
+            className='result'
             grow
             width='100%'
-            style={{backgroundColor:'#607D8B', maxWidth: 1000, overflow: 'scroll'}}
+            style={{backgroundColor:'#607D8B', maxWidth: 1000,overflowX: 'hidden', overflowY: 'scroll'}}
           >
             <RouteHandler />
           </FlexView>
