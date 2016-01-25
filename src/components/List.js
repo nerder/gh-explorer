@@ -6,7 +6,6 @@ import { Link } from 'react-router-transition-context';
 @props({
   list: t.Array
 })
-
 export default class List extends React.Component {
 
   getLocals() {
@@ -18,7 +17,7 @@ export default class List extends React.Component {
 
   template({ list }) {
     return (
-      <div>
+      <div className="list">
       {
         list.map( (el) => {
           return <div key={el}><Link key={el} to="details" params={{detailId: el}}>{el}</Link></div>;

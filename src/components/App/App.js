@@ -2,6 +2,7 @@ import React from 'react';
 import { skinnable } from 'revenge';
 import { RouteHandler } from 'react-router-transition-context';
 import { FlexView } from 'buildo-react-components/src/flex';
+import './app.scss';
 
 @skinnable()
 export default class App extends React.Component {
@@ -20,16 +21,14 @@ export default class App extends React.Component {
           hAlignContent='center'
         >
           <FlexView
-            className='nav-bar'
             width='100%'
             basis={80}
             style={{backgroundColor:'#2196F3'}}
           />
           <FlexView
-            className='result'
+            className="results"
             grow
             width='100%'
-            style={{backgroundColor:'#607D8B', maxWidth: 1000,overflowX: 'hidden', overflowY: 'scroll'}}
           >
             <RouteHandler />
           </FlexView>
