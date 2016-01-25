@@ -7,7 +7,6 @@ import { Link } from 'react-router-transition-context';
 @props({
   detail: t.String
 })
-
 export default class Detail extends React.Component {
 
   getLocals() {

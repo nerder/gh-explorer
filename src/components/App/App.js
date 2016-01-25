@@ -21,29 +21,29 @@ export default class App extends React.Component {
   }
 
   onSearchChange = value => {
-      console.log('I got the value ==>',value);
-      //no need for setState now
-      //this.setState({ searchValue : value });
+    console.log('I got the value ==>',value);
+    //no need for setState now
+    //this.setState({ searchValue : value });
   }
 
   template({ searchValue, onSearchChange }) {
     return (
+      <FlexView
+        className='app'
+        column
+        width='100%'
+        height='100%'
+        hAlignContent='center'
+      >
+        <NavBar onSearchChange={onSearchChange} searchValue={searchValue} />
         <FlexView
-          className='app'
-          column
+          className="results"
+          grow
           width='100%'
-          height='100%'
-          hAlignContent='center'
         >
-          <NavBar onSearchChange={onSearchChange} searchValue={searchValue} />
-          <FlexView
-            className="results"
-            grow
-            width='100%'
-          >
-            <RouteHandler />
-          </FlexView>
+          <RouteHandler />
         </FlexView>
+      </FlexView>
     );
   }
 }

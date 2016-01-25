@@ -5,8 +5,6 @@ import { Link } from 'react-router-transition-context';
 import SearchBar from 'SearchBar/SearchBar';
 import './nav-bar.scss';
 
-
-
 @skinnable()
 @props({
   searchValue: t.String,
