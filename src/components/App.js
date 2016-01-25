@@ -13,23 +13,21 @@ export default class App extends React.Component {
   template() {
     return (
         <FlexView
-          className='main-wrapper'
+          className='app'
           column
           width='100%'
           height='100%'
           hAlignContent='center'
         >
           <FlexView
-            className='nav-bar'
             width='100%'
             basis={80}
             style={{backgroundColor:'#2196F3'}}
           />
           <FlexView
-            className='result'
             grow
             width='100%'
-            style={{backgroundColor:'#607D8B', maxWidth: 1000}}
+            style={{backgroundColor:'#607D8B', maxWidth: 1000, overflow: 'scroll'}}
           >
             <RouteHandler />
           </FlexView>
