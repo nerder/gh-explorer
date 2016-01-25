@@ -1,3 +1,4 @@
+import './assets';
 import React from 'react';
 import Router from 'react-router-transition-context';
 import routes from './routes';

@@ -19,7 +19,7 @@ export default class Detail extends React.Component {
 
   template({ detail }) {
     return (
-      <div>
+      <div className="detail">
         I'm the datail number # {detail}
         <div>
           <Link to="main">&lt;= Come Home Lessie</Link>

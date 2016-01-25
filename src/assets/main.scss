@@ -1,0 +1,22 @@
+// FONTS
+// nothing for now
+
+// BORDER-BOX
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// THEME
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background-color: #BBDEFB;
+}

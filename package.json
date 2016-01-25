@@ -46,6 +46,7 @@
     "buildo-react-components": "github:buildo/react-components",
     "classnames": "^2.1.5",
     "lodash": "^3.7.0",
+    "normalize-css": "^2.3.1",
     "react": "^0.13.3",
     "react-document-title": "^1.0.2",
     "react-router-transition-context": "^0.13.3",
