@@ -1,4 +1,5 @@
 .nav-bar{
-    z-index: 9999;
+
+    z-index: 1; //This is used for the box-shadow
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
