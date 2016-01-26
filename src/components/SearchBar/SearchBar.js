@@ -20,7 +20,7 @@ export default class SearchBar extends React.Component {
   }
 
   componentWillReceiveProps(newProps){
-    this.setState({currentValue: this.getStateValue(newProps)})
+    this.setState({currentValue: this.getStateValue(newProps)});
   }
 
   onSearch = () => {
