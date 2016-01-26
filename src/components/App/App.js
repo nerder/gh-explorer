@@ -16,17 +16,22 @@ export default class App extends React.Component {
   getLocals() {
     return {
       onSearchChange : this.onSearchChange,
-      searchValue : this.state.searchValue
+      searchValue : this.state.searchValue,
+      onLogoClick: this.onLogoClick
     };
   }
 
   onSearchChange = value => {
     console.log('I got the value ==>',value);
     //no need for setState now
-    //this.setState({ searchValue : value });
+    this.setState({ searchValue : value });
   }
 
-  template({ searchValue, onSearchChange }) {
+  onLogoClick = () => {
+    this.setState({ searchValue : '' })
+  }
+
+  template({ searchValue, onSearchChange , onLogoClick }) {
     return (
       <FlexView
         className='app'
@@ -35,7 +40,7 @@ export default class App extends React.Component {
         height='100%'
         hAlignContent='center'
       >
-        <NavBar onSearchChange={onSearchChange} searchValue={searchValue} />
+        <NavBar onSearchChange={onSearchChange} searchValue={searchValue} onLogoClick={onLogoClick} />
         <FlexView
           className="results"
           grow

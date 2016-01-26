@@ -8,13 +8,14 @@ import './nav-bar.scss';
 @skinnable()
 @props({
   searchValue: t.String,
-  onSearchChange: t.Function
+  onSearchChange: t.Function,
+  onLogoClick: t.Function
 })
 export default class NavBar extends React.Component {
 
-  leftTemplate() {
+  leftTemplate({ onLogoClick }) {
     return (
-      <div>
+      <div onClick={onLogoClick}>
         <Link to="main">
           <img width="60px" src="http://i.imgur.com/b5NX5ni.gif"/>
         </Link>
@@ -31,13 +32,16 @@ export default class NavBar extends React.Component {
   }
 
   getLocals(){
+    const leftProps = {
+      onLogoClick : this.props.onLogoClick
+    };
     const searchBarProps = {
       searchValue : this.props.searchValue,
       onSearchChange : this.props.onSearchChange
     };
     const navBarProps = {
       content: {
-        left: this.leftTemplate(),
+        left: this.leftTemplate(leftProps),
         center: this.centerTemplate(searchBarProps),
         maxWidth: 1000
       },
