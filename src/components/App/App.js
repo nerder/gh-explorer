@@ -23,7 +23,6 @@ export default class App extends React.Component {
   }
 
   onSearchChange = value => {
-    console.log('I got the value ==>',value);
     let results;
     //This is used for testing purpose only
     if(value){
