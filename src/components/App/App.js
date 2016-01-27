@@ -10,7 +10,7 @@ export default class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { searchValue: '', resultsValue: undefined};
+    this.state = { searchValue : '', resultsValue: undefined};
   }
 
   getLocals() {
@@ -38,7 +38,7 @@ export default class App extends React.Component {
     }if( value !== 'reactjs' ){
       results = [];
     }
-    //no need for setState now
+
     this.setState({ searchValue : value, resultsValue : results });
   }
 
@@ -61,7 +61,7 @@ export default class App extends React.Component {
           grow
           width='100%'
         >
-          <ResultsPanel results={resultsValue}/>
+          <ResultsPanel results={resultsValue} searchedValue={searchValue}/>
         </FlexView>
       </FlexView>
     );

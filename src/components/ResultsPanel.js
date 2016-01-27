@@ -6,7 +6,8 @@ import List from 'List/List';
 
 @skinnable()
 @props({
-  results: t.Array
+  results: t.maybe(t.Array),
+  searchedValue: t.String
 })
 export default class ResultsPanel extends React.Component {
 
@@ -17,16 +18,18 @@ export default class ResultsPanel extends React.Component {
 
   getLocals() {
     const results = this.props.results;
+    const searchedValue = this.props.searchedValue;
     return {
-      results
+      results,
+      searchedValue
     };
   }
 
-  template({ results }){
+  template({ results, searchedValue }){
     return (
         <Panel
           type='floating'
-          header={{ title: 'Results Panel' }}
+          header={{ title: 'Results'+(searchedValue ? ' for: ' + searchedValue : '')}}
         >
           <ScrollView
             easing='easeInOutQuad'
