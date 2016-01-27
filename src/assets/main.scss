@@ -1,6 +1,6 @@
 // FONTS
-// nothing for now
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 // BORDER-BOX
 
 html {
@@ -19,4 +19,9 @@ html, body, #app {
 
 body {
   background-color: #607D8B;
+  font-family: 'Roboto', sans-serif;
+}
+//Disable outline
+a:hover, a:active, a:focus, button:focus {
+  outline:0;
 }

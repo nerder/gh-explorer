@@ -38,7 +38,7 @@ export default class SearchBar extends React.Component {
     return (
       <div className="searchBar">
         <input type="text" placeholder="Search your Repository" valueLink={valueLink} required></input>
-        <button onClick={onSearch}><img width="20px" src="http://www.jobbafrisk.se/sites/all/themes/jobbafrisk/images/sbicon.png"/></button>
+        <button onClick={onSearch}><i className="fa fa-search"></i></button>
       </div>
     );
   }
