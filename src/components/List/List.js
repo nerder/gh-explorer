@@ -54,9 +54,9 @@ export default class List extends React.Component {
     return(
       <div>
       {
-        list.map( (el) => {
+        list.map( (el,i) => {
           return(
-            <ResultRow result={el}/>
+            <ResultRow key={i} result={el}/>
           );
         })
       }
