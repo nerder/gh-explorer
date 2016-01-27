@@ -33,7 +33,7 @@ export default class ResultRow extends React.Component {
           vAlignContent='center'
           hAlignContent='left'
         >
-          <h3>{resultObj.name}</h3>
+          <h3><a target="_blank" href={resultObj.html_url}>{resultObj.name}</a></h3>
           <p>{resultObj.description}</p>
         </FlexView>
         <FlexView
