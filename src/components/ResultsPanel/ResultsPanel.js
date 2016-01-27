@@ -31,7 +31,7 @@ export default class ResultsPanel extends React.Component {
         <Panel
           className="results-panel"
           type='floating'
-          header={{ title: 'Results'+(searchedValue ? ' for: ' + searchedValue : '')}}
+          header={{ title: (searchedValue ? 'Results for : ' + searchedValue : 'Welcome')}}
         >
           <ScrollView
             easing='easeInOutQuad'

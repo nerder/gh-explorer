@@ -21,3 +21,7 @@ body {
   background-color: #607D8B;
   font-family: 'Roboto', sans-serif;
 }
+//Disable outline
+a:hover, a:active, a:focus, button:focus {
+  outline:0;
+}

@@ -43,7 +43,7 @@ export default class App extends React.Component {
   }
 
   onLogoClick = () => {
-    this.setState({ searchValue : ''});
+    this.setState({ searchValue : '', resultsValue: undefined });
   }
 
   template({ searchValue, onSearchChange, resultsValue, onLogoClick }) {
