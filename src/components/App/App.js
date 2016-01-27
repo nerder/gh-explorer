@@ -34,9 +34,6 @@ export default class App extends React.Component {
   }
 
   onSearchChange = value => {
-    //This is used for testing purpose only
-    //const results = (value === 'reactjs' ? fakeResults : []);
-
     getRepos(value)
       .then(res => {
         this.setState({ searchValue : value, resultsValue : res });
