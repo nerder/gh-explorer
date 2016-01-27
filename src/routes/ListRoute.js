@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultsPanel from 'components/ResultsPanel';
+import ResultsPanel from 'ResultsPanel/ResultsPanel';
 
 export default class ListRoute extends React.Component {
 

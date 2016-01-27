@@ -2,7 +2,7 @@ import React from 'react';
 import { skinnable } from 'revenge';
 import { FlexView } from 'buildo-react-components/src/flex';
 import NavBar from 'NavBar/NavBar';
-import ResultsPanel from 'ResultsPanel';
+import ResultsPanel from 'ResultsPanel/ResultsPanel';
 import './app.scss';
 
 @skinnable()

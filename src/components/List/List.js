@@ -1,7 +1,8 @@
 import React from 'react';
 import { props, skinnable, t } from 'revenge';
 import { FlexView } from 'buildo-react-components/src/flex';
-import ResultRow from 'ResultRow';
+import ResultRow from 'ResultRow/ResultRow';
+import './list.scss';
 
 @skinnable()
 @props({
@@ -26,12 +27,10 @@ export default class List extends React.Component {
         className="homepage"
         vAlignContent='top'
         hAlignContent='center'
-        marginTop='2%'
-        marginLeft='5%'
       >
         <h1>Welcome to RepoHunter</h1>
         <h3>The webapp that helps you find usefull information about your favourite repos</h3>
-        <img height="250px" src="http://i.imgur.com/b5NX5ni.gif"/>
+        <img src="http://i.imgur.com/b5NX5ni.gif"/>
       </FlexView>
     );
   }
@@ -43,12 +42,10 @@ export default class List extends React.Component {
         className="not-found"
         vAlignContent='top'
         hAlignContent='center'
-        marginTop='2%'
-        marginLeft='5%'
       >
-        <h1>404 Not Found</h1>
+        <h1>404</h1>
         <h3>We are sorry, we are not able to find out nothing related to this. </h3>
-        <img height="300px" src="http://cdn.meme.am/instances/500x/60359423.jpg"/>
+        <img src="http://cdn.meme.am/instances/500x/60359423.jpg"/>
       </FlexView>
     );
   }

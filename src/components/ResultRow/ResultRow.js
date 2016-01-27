@@ -2,6 +2,7 @@ import React from 'react';
 import { props, skinnable, t } from 'revenge';
 import { Link } from 'react-router-transition-context';
 import { FlexView } from 'buildo-react-components/src/flex';
+import './result-row.scss';
 
 @skinnable()
 @props({
@@ -19,14 +20,15 @@ export default class ResultRow extends React.Component {
   template({ resultObj }){
     return(
       <FlexView
+        className="result-row"
         width='100%'
         height='100%'
-        vAlignContent='bottom'
+        vAlignContent='center'
         hAlignContent='center'
       >
         <FlexView
           column
-          width='50%'
+          grow
           height='100%'
           vAlignContent='center'
           hAlignContent='left'
@@ -35,10 +37,9 @@ export default class ResultRow extends React.Component {
           <p>{resultObj.description}</p>
         </FlexView>
         <FlexView
-          width='50%'
           height='100%'
           grow
-          vAlignContent='bottom'
+          vAlignContent='center'
           hAlignContent='right'
           maxHeight='100%'
         >

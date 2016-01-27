@@ -3,6 +3,7 @@ import { props, skinnable, t } from 'revenge';
 import { Panel } from 'buildo-react-components/src/Panel';
 import ScrollView from 'buildo-react-components/src/scroll';
 import List from 'List/List';
+import './results-panel.scss';
 
 @skinnable()
 @props({
@@ -28,6 +29,7 @@ export default class ResultsPanel extends React.Component {
   template({ results, searchedValue }){
     return (
         <Panel
+          className="results-panel"
           type='floating'
           header={{ title: 'Results'+(searchedValue ? ' for: ' + searchedValue : '')}}
         >
@@ -47,9 +49,7 @@ export default class ResultsPanel extends React.Component {
               }
           }
           </ScrollView>
-          <button style={{ position: 'absolute', right: 0 ,bottom: 0 }} onClick={()=> this.scrollTo(0, 0, 1500)}>
-          Go to top
-          </button>
+          <button className="back-to-top" style={{position:'absolute'}} onClick={()=> this.scrollTo(0, 0, 1500)}><i className="fa fa-arrow-up"></i></button>
         </Panel>
     );
   }

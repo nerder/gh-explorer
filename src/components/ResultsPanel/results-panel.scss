@@ -1,0 +1,25 @@
+$color:#03A9F4;
+
+.results-panel{
+  color:#212121;
+  .panel.floating{
+    border: 0 !important;
+  }
+  .back-to-top{
+    right: 0;
+    bottom: 0;
+    border: none;
+    background: $color;
+    cursor: pointer;
+    padding: 10px;
+    color: #fff;
+    border-radius: 100%;
+    margin: 15px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
+    }
+  }
+}
