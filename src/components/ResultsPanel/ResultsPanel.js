@@ -19,11 +19,9 @@ export default class ResultsPanel extends React.Component {
 
   getLocals() {
     const {
-      props: {
-        results,
-        searchedValue
-      }
-    } = this;
+      results,
+      searchedValue
+    } = this.props;
     return {
       results,
       searchedValue

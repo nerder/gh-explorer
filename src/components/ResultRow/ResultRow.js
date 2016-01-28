@@ -11,11 +11,7 @@ import './result-row.scss';
 export default class ResultRow extends React.Component {
 
   getLocals(){
-    const {
-      props: {
-        result
-      }
-    } = this;
+    const result = this.props.result;
     return {
       result
     };
