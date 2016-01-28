@@ -9,7 +9,11 @@ import { Link } from 'react-router-transition-context';
 export default class Detail extends React.Component {
 
   getLocals() {
-    const detail = this.props.detail;
+    const {
+      props : {
+        detail
+      }
+    } = this;
     return {
       detail
     };

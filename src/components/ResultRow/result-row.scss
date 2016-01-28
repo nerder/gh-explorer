@@ -5,12 +5,11 @@
     margin: 0;
     margin-top:20px;
     border-bottom: 1px solid #e0e0e0;
-
-    &:hover{
-      h3{
-        border-bottom-color: #03A9F4;
-      }
+    
+    h3:hover{
+      border-bottom-color: #03A9F4;
     }
+
     &:last-child{
       border-bottom: 0px;
     }

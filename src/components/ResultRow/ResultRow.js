@@ -11,13 +11,13 @@ import './result-row.scss';
 export default class ResultRow extends React.Component {
 
   getLocals(){
-    const resultObj = this.props.result;
+    const result = this.props.result;
     return {
-      resultObj
+      result
     };
   }
 
-  template({ resultObj }){
+  template({ result }){
     return(
       <FlexView
         className="result-row"
@@ -33,8 +33,8 @@ export default class ResultRow extends React.Component {
           vAlignContent='center'
           hAlignContent='left'
         >
-          <h3>{resultObj.name}</h3>
-          <p>{resultObj.description}</p>
+          <h3><a target="_blank" href={result.html_url}>{result.name}</a></h3>
+          <p>{result.description}</p>
         </FlexView>
         <FlexView
           height='100%'
@@ -43,7 +43,7 @@ export default class ResultRow extends React.Component {
           hAlignContent='right'
           maxHeight='100%'
         >
-          <Link key={resultObj.id} to="details" params={{detailId: resultObj.id}}><button>Show More</button></Link>
+          <Link key={result.id} to="details" params={{detailId: result.id}}><button>Show More</button></Link>
         </FlexView>
       </FlexView>
     );

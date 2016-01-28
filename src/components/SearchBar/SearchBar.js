@@ -28,8 +28,9 @@ export default class SearchBar extends React.Component {
   }
 
   getLocals() {
+    const onSearch = this.onSearch;
     return {
-      onSearch: this.onSearch,
+      onSearch,
       valueLink: linkState(this, 'currentValue')
     };
   }

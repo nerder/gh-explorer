@@ -32,13 +32,20 @@ export default class NavBar extends React.Component {
   }
 
   getLocals(){
+    const {
+      onLogoClick,
+      searchValue,
+      onSearchChange
+    } = this.props;
+
     const leftProps = {
-      onLogoClick : this.props.onLogoClick
+      onLogoClick
     };
     const searchBarProps = {
-      searchValue : this.props.searchValue,
-      onSearchChange : this.props.onSearchChange
+      searchValue,
+      onSearchChange
     };
+
     const navBarProps = {
       content: {
         left: this.leftTemplate(leftProps),

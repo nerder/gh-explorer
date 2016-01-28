@@ -3,16 +3,9 @@ import { skinnable } from 'revenge';
 import { FlexView } from 'buildo-react-components/src/flex';
 import NavBar from 'NavBar/NavBar';
 import ResultsPanel from 'ResultsPanel/ResultsPanel';
+import { getRepos } from 'api';
 import './app.scss';
 
-const fakeResults = [
-  {'id': 1, 'name': 'reactjs_koans', 'description':'Learn basics of React.js making the tests pass'},
-  {'id': 2, 'name': 'react-hot-boilerplate', 'description':'Minimal live-editing boilerplate for your next ReactJS project'},
-  {'id': 3, 'name': 'generator-react-webpack', 'description':'Yeoman generator for ReactJS and Webpack'},
-  {'id': 4, 'name': 'generator-react-webpack', 'description':'Yeoman generator for ReactJS and Webpack'},
-  {'id': 5, 'name': 'generator-react-webpack', 'description':'Yeoman generator for ReactJS and Webpack'},
-  {'id': 6, 'name': 'generator-react-webpack', 'description':'Yeoman generator for ReactJS and Webpack'}
-];
 
 @skinnable()
 export default class App extends React.Component {
@@ -23,18 +16,28 @@ export default class App extends React.Component {
   }
 
   getLocals() {
+    const {
+      onSearchChange,
+      onLogoClick,
+      state: {
+        searchValue,
+        resultsValue
+      }
+    } = this;
+
     return {
-      onSearchChange : this.onSearchChange,
-      searchValue : this.state.searchValue,
-      onLogoClick: this.onLogoClick,
-      resultsValue: this.state.resultsValue
+      onSearchChange,
+      searchValue,
+      onLogoClick,
+      resultsValue
     };
   }
 
   onSearchChange = value => {
-    //This is used for testing purpose only
-    const results = (value === 'reactjs' ? fakeResults : []);
-    this.setState({ searchValue : value, resultsValue : results });
+    getRepos(value)
+      .then(res => {
+        this.setState({ searchValue : value, resultsValue : res });
+      }).catch(::console.error);
   }
 
   onLogoClick = () => {
