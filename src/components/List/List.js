@@ -27,23 +27,20 @@ export default class List extends React.Component {
     };
   }
 
-  templatePlaceholder = () =>{
-    return (
-      <FlexView
-        column
-        className="homepage"
-        vAlignContent='top'
-        hAlignContent='center'
-      >
-        <h1>Welcome to RepoHunter</h1>
-        <h3>The webapp that helps you find usefull information about your favourite repos</h3>
-        <img src="http://i.imgur.com/b5NX5ni.gif"/>
-      </FlexView>
-    );
-  }
+  templatePlaceholder = () =>(
+    <FlexView
+      column
+      className="homepage"
+      vAlignContent='top'
+      hAlignContent='center'
+    >
+      <h1>Welcome to RepoHunter</h1>
+      <h3>The webapp that helps you find usefull information about your favourite repos</h3>
+      <img src="http://i.imgur.com/b5NX5ni.gif"/>
+    </FlexView>
+  );
 
-  templateNoResults = () =>{
-    return (
+  templateNoResults = () =>(
       <FlexView
         column
         className="not-found"
@@ -55,34 +52,29 @@ export default class List extends React.Component {
         <img src="http://cdn.meme.am/instances/500x/60359423.jpg"/>
       </FlexView>
     );
-  }
 
-  templateLoading = () => {
-    return(
-      <FlexView
-        vAlignContent='center'
-        hAlignContent='center'
-        grow
-        style={{position:'relative', height: '60vh'}}
-      >
-        <LoadingSpinner color='#03A9F4' />
-      </FlexView>
-    );
-  };
+  templateLoading = () => (
+    <FlexView
+      vAlignContent='center'
+      hAlignContent='center'
+      grow
+      style={{position:'relative', height: '60vh'}}
+    >
+      <LoadingSpinner color='#03A9F4' />
+    </FlexView>
+  );
 
-  templateList = ({ list }) =>{
-      return(
-        <div>
-        {
-          list.map( (el,i) => {
-            return(
-              <ResultRow key={i} result={el}/>
-            );
-          })
-        }
-        </div>
-      );
-    };
+  templateList = ({ list }) =>(
+    <div>
+    {
+      list.map( (el,i) => {
+        return(
+          <ResultRow key={i} result={el}/>
+        );
+      })
+    }
+    </div>
+  );
 
   template({ list, loading, shouldRenderPlaceholder, shouldRenderNoResults, shouldRenderResults }) {
     return (
