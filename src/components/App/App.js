@@ -12,7 +12,7 @@ export default class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { searchValue : '', resultsValue: undefined};
+    this.state = { searchValue : '', resultsValue: undefined, loadingResults: false};
   }
 
   getLocals() {
@@ -21,7 +21,8 @@ export default class App extends React.Component {
       onLogoClick,
       state: {
         searchValue,
-        resultsValue
+        resultsValue,
+        loadingResults
       }
     } = this;
 
@@ -29,22 +30,25 @@ export default class App extends React.Component {
       onSearchChange,
       searchValue,
       onLogoClick,
-      resultsValue
+      resultsValue,
+      loadingResults
     };
   }
 
   onSearchChange = value => {
+    this.setState({loadingResults: true});
     getRepos(value)
       .then(res => {
-        this.setState({ searchValue : value, resultsValue : res });
-      }).catch(::console.error);
+        this.setState({ searchValue : value, resultsValue : res , loadingResults: false});
+      })
+      .catch(::console.error);
   }
 
   onLogoClick = () => {
-    this.setState({ searchValue : '', resultsValue: undefined });
+    this.setState({ searchValue : '', resultsValue: undefined , loadingResults: false});
   }
 
-  template({ searchValue, onSearchChange, resultsValue, onLogoClick }) {
+  template({ searchValue, onSearchChange, resultsValue, onLogoClick, loadingResults }) {
     return (
       <FlexView
         className='app'
@@ -59,7 +63,7 @@ export default class App extends React.Component {
           grow
           width='100%'
         >
-          <ResultsPanel results={resultsValue} searchedValue={searchValue}/>
+          <ResultsPanel results={resultsValue} searchedValue={searchValue} loadingResults={loadingResults}/>
         </FlexView>
       </FlexView>
     );

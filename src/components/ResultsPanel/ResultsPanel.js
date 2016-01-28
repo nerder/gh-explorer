@@ -8,7 +8,8 @@ import './results-panel.scss';
 @skinnable()
 @props({
   results: t.maybe(t.Array),
-  searchedValue: t.String
+  searchedValue: t.String,
+  loadingResults: t.Boolean
 })
 export default class ResultsPanel extends React.Component {
 
@@ -20,15 +21,17 @@ export default class ResultsPanel extends React.Component {
   getLocals() {
     const {
       results,
-      searchedValue
+      searchedValue,
+      loadingResults
     } = this.props;
     return {
       results,
-      searchedValue
+      searchedValue,
+      loadingResults
     };
   }
 
-  template({ results, searchedValue }){
+  template({ results, searchedValue, loadingResults }){
     return (
         <Panel
           className="results-panel"
@@ -44,9 +47,7 @@ export default class ResultsPanel extends React.Component {
           {(scrollTo) => {
             this.scrollTo = scrollTo;
             return (
-              <div>
-                <List list={results} />
-              </div>
+                <List list={results} loading={loadingResults} />
               );
               }
           }
