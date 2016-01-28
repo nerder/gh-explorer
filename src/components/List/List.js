@@ -11,7 +11,11 @@ import './list.scss';
 export default class List extends React.Component {
 
   getLocals() {
-    const list = this.props.list;
+    const {
+      props: {
+        list
+      }
+    } = this;
     return {
       list,
       shouldRenderPlaceholder: typeof list === 'undefined',
