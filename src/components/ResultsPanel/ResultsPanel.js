@@ -49,7 +49,7 @@ export default class ResultsPanel extends React.Component {
               }
           }
           </ScrollView>
-          <button className="back-to-top" style={{position:'absolute'}} onClick={()=> this.scrollTo(0, 0, 1500)}><i className="fa fa-arrow-up"></i></button>
+          <button className="back-to-top" style={{position:'absolute'}} onClick={()=> this.scrollTo(0, 0, results.length < 15 ? results.length * 100: 1500)}><i className="fa fa-arrow-up"></i></button>
         </Panel>
     );
   }
