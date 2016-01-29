@@ -16,7 +16,7 @@ export default class ResultsPanel extends React.Component {
   constructor(props){
     super(props);
     this.scrollTo = () => {};
-    this.state = { needBackToTop: false};
+    this.state = { needBackToTop: false };
   }
 
   handleScroll = (event) => {
@@ -48,13 +48,13 @@ export default class ResultsPanel extends React.Component {
         <Panel
           className="results-panel"
           type='floating'
-          header={{ title: (searchedValue ? 'Results for : ' + searchedValue : 'Welcome')}}
+          header={{ title: (searchedValue ? 'Results for : ' + searchedValue : 'Welcome') }}
         >
           <ScrollView
             easing='easeInOutQuad'
             scrollX={false}
             scrollPropagation={false}
-            style={{ position: 'absolute', width: '100%', maxHeight:'100%'}}
+            style={{ position: 'absolute', width: '100%', maxHeight:'100%' }}
             onScroll={handleScroll}
           >
           {(scrollTo) => {
