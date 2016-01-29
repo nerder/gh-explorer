@@ -68,8 +68,8 @@ export default class ResultsPanel extends React.Component {
           {needBackToTop && (
             <button
               className="back-to-top"
-              style={{position:'absolute'}}
-              onClick={()=> this.scrollTo(0, 0, Math.min(1500, results.length * 100))}
+              style={{ position:'absolute' }}
+              onClick={()=> this.scrollTo(0, 0, results ? Math.min(1500, results.length * 100) : 1500)}
             >
               <i className="fa fa-arrow-up" />
             </button>
