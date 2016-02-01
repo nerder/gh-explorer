@@ -39,11 +39,12 @@ export default class ResultsPanel extends React.Component {
       searchedValue,
       loadingResults,
       needBackToTop,
+      scrollDuration: results ? Math.min(1500, results.length * 100) : 1500,
       handleScroll: this.handleScroll
     };
   }
 
-  template({ results, searchedValue, loadingResults, handleScroll, needBackToTop }){
+  template({ results, searchedValue, loadingResults, handleScroll, needBackToTop, scrollDuration }){
     return (
         <Panel
           className="results-panel"
@@ -69,7 +70,7 @@ export default class ResultsPanel extends React.Component {
             <button
               className="back-to-top"
               style={{ position:'absolute' }}
-              onClick={()=> this.scrollTo(0, 0, results ? Math.min(1500, results.length * 100) : 1500)}
+              onClick={()=> this.scrollTo(0, 0, scrollDuration )}
             >
               <i className="fa fa-arrow-up" />
             </button>
