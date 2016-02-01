@@ -43,7 +43,7 @@ export default class ResultRow extends React.Component {
           hAlignContent='right'
           maxHeight='100%'
         >
-          <Link key={result.id} to="details" params={{detailId: result.id}}><button>Show More</button></Link>
+          <Link key={result.id} to="details" params={{ detailId: result.id }}><button>Show More</button></Link>
         </FlexView>
       </FlexView>
     );

@@ -12,7 +12,7 @@ export default class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { searchValue : '', resultsValue: undefined, loadingResults: false};
+    this.state = { searchValue : '', resultsValue: undefined, loadingResults: false };
   }
 
   getLocals() {
@@ -36,16 +36,16 @@ export default class App extends React.Component {
   }
 
   onSearchChange = value => {
-    this.setState({loadingResults: true});
+    this.setState({ loadingResults: true });
     getRepos(value)
       .then(res => {
-        this.setState({ searchValue : value, resultsValue : res , loadingResults: false});
+        this.setState({ searchValue : value, resultsValue : res , loadingResults: false });
       })
       .catch(::console.error);
   }
 
   onLogoClick = () => {
-    this.setState({ searchValue : '', resultsValue: undefined , loadingResults: false});
+    this.setState({ searchValue : '', resultsValue: undefined , loadingResults: false });
   }
 
   template({ searchValue, onSearchChange, resultsValue, onLogoClick, loadingResults }) {

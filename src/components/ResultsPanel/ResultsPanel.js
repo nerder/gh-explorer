@@ -16,43 +16,65 @@ export default class ResultsPanel extends React.Component {
   constructor(props){
     super(props);
     this.scrollTo = () => {};
+    this.state = { needBackToTop: false };
+  }
+
+  handleScroll = (event) => {
+    this.setState({ needBackToTop: event.target.scrollTop > 500 });
   }
 
   getLocals() {
     const {
-      results,
-      searchedValue,
-      loadingResults
-    } = this.props;
+      props: {
+        results,
+        searchedValue,
+        loadingResults
+      },
+      state: {
+        needBackToTop
+      }
+    } = this;
     return {
       results,
       searchedValue,
-      loadingResults
+      loadingResults,
+      needBackToTop,
+      scrollDuration: results ? Math.min(1500, results.length * 100) : 1500,
+      handleScroll: this.handleScroll
     };
   }
 
-  template({ results, searchedValue, loadingResults }){
+  template({ results, searchedValue, loadingResults, handleScroll, needBackToTop, scrollDuration }){
     return (
         <Panel
           className="results-panel"
           type='floating'
-          header={{ title: (searchedValue ? 'Results for : ' + searchedValue : 'Welcome')}}
+          header={{ title: (searchedValue ? 'Results for : ' + searchedValue : 'Welcome') }}
         >
           <ScrollView
             easing='easeInOutQuad'
             scrollX={false}
             scrollPropagation={false}
-            style={{ position: 'absolute', width: '100%', maxHeight:'100%'}}
+            style={{ position: 'absolute', width: '100%', maxHeight:'100%' }}
+            onScroll={handleScroll}
           >
           {(scrollTo) => {
             this.scrollTo = scrollTo;
             return (
-                <List list={results} loading={loadingResults} />
-              );
-              }
+              <List list={results} loading={loadingResults} />
+            );
+            }
           }
           </ScrollView>
-          <button className="back-to-top" style={{position:'absolute'}} onClick={()=> this.scrollTo(0, 0, Math.min(1500, results.length * 100))}><i className="fa fa-arrow-up"></i></button>
+          {needBackToTop && (
+            <button
+              className="back-to-top"
+              style={{ position:'absolute' }}
+              onClick={()=> this.scrollTo(0, 0, scrollDuration )}
+            >
+              <i className="fa fa-arrow-up" />
+            </button>
+          )}
         </Panel>
     );
   }

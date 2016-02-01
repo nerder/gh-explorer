@@ -9,7 +9,7 @@ export const getRepos = (query) => {
     }
   })
   .then(res => res.data.items
-    .map(({ id, name, description, html_url }) => ({id, name,description, html_url })
+    .map(({ id, name, description, html_url }) => ({ id, name,description, html_url })
    )
   );
 };
