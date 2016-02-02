@@ -1,20 +1,6 @@
 $color:#03A9F4;
 
-.results-panel.panel {
-  color:#212121;
-  border: 0;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  .panel-header{
-    background-color: $color;
-    z-index: 1;
-    min-height: 70px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  }
-  .panel-header-title{
-    font-size: 22px;
-    letter-spacing: 0.7px;
-    font-weight: 400;
-  }
+.results-panel {
   .back-to-top{
     right: 0;
     bottom: 0;

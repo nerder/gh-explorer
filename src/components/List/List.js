@@ -8,39 +8,28 @@ import './list.scss';
 @skinnable()
 @props({
   list: t.maybe(t.Array),
-  loading: t.Boolean
+  loading: t.Boolean,
+  searchValue: t.String
 })
 export default class List extends React.Component {
 
   getLocals() {
     const {
       list,
-      loading
+      loading,
+      searchValue
     } = this.props;
 
     return {
       list,
       loading,
-      shouldRenderPlaceholder: typeof list === 'undefined',
+      searchValue,
       shouldRenderNoResults: !!list && list.length === 0,
       shouldRenderResults: !!list && list.length > 0
     };
   }
 
-  templatePlaceholder = () =>(
-    <FlexView
-      column
-      className="homepage"
-      vAlignContent='top'
-      hAlignContent='center'
-    >
-      <h1>Welcome to RepoHunter</h1>
-      <h3>The webapp that helps you find usefull information about your favourite repos</h3>
-      <img src="http://i.imgur.com/b5NX5ni.gif"/>
-    </FlexView>
-  );
-
-  templateNoResults = () =>(
+  templateNoResults = () => (
       <FlexView
         column
         className="not-found"
@@ -58,31 +47,30 @@ export default class List extends React.Component {
       vAlignContent='center'
       hAlignContent='center'
       grow
-      style={{ position:'relative', height: '60vh' }}
+      style={{ position: 'relative', height: '60vh' }}
     >
       <LoadingSpinner color='#03A9F4' />
     </FlexView>
   );
 
-  templateList = ({ list }) =>(
+  templateList = ({ list, searchValue }) => (
     <div>
     {
-      list.map( (el,i) => {
+      list.map( (el, i) => {
         return(
-          <ResultRow key={i} result={el}/>
+          <ResultRow key={i} result={el} searchValue={searchValue}/>
         );
       })
     }
     </div>
   );
 
-  template({ list, loading, shouldRenderPlaceholder, shouldRenderNoResults, shouldRenderResults }) {
+  template({ list, loading, shouldRenderNoResults, shouldRenderResults, searchValue }) {
     return (
       <div className="list">
-        {shouldRenderPlaceholder && !loading && this.templatePlaceholder()}
         {shouldRenderNoResults && !loading && this.templateNoResults()}
         {loading && this.templateLoading()}
-        {shouldRenderResults && !loading && this.templateList({ list })}
+        {shouldRenderResults && !loading && this.templateList({ list, searchValue })}
       </div>
     );
   }

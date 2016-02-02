@@ -6,18 +6,16 @@ import './result-row.scss';
 
 @skinnable()
 @props({
-  result: t.Object
+  result: t.Object,
+  searchValue: t.String
 })
 export default class ResultRow extends React.Component {
 
   getLocals(){
-    const result = this.props.result;
-    return {
-      result
-    };
+    return this.props;
   }
 
-  template({ result }){
+  template({ result, searchValue }){
     return(
       <FlexView
         className="result-row"
@@ -43,7 +41,7 @@ export default class ResultRow extends React.Component {
           hAlignContent='right'
           maxHeight='100%'
         >
-          <Link key={result.id} to="details" params={{ detailId: result.id }}><button>Show More</button></Link>
+          <Link key={result.id} to="details" params={{ query: searchValue, detailId: result.id }}><button>Show More</button></Link>
         </FlexView>
       </FlexView>
     );

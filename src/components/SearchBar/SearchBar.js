@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component {
 
   constructor(props){
     super(props);
-    this.state = { currentValue : this.getStateValue(this.props) };
+    this.state = { currentValue: this.getStateValue(this.props) };
   }
 
   getStateValue(props) {

@@ -1,54 +1,60 @@
 import React from 'react';
-import { skinnable } from 'revenge';
+import { props, skinnable, t } from 'revenge';
 import { FlexView } from 'buildo-react-components/src/flex';
+import { Panel } from 'buildo-react-components/src/Panel';
 import NavBar from 'NavBar/NavBar';
-import ResultsPanel from 'ResultsPanel/ResultsPanel';
-import { getRepos } from 'api';
+import { RouteHandler } from 'react-router-transition-context';
 import './app.scss';
 
 
 @skinnable()
+@props({
+  transitionToList: t.Function,
+  backToMain: t.Function,
+  searchedValue: t.maybe(t.String)
+})
 export default class App extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state = { searchValue : '', resultsValue: undefined, loadingResults: false };
-  }
 
   getLocals() {
     const {
       onSearchChange,
       onLogoClick,
-      state: {
-        searchValue,
-        resultsValue,
-        loadingResults
+      props: {
+        searchedValue
       }
     } = this;
 
     return {
       onSearchChange,
-      searchValue,
+      searchedValue: searchedValue || '',
       onLogoClick,
-      resultsValue,
-      loadingResults
+      shouldRenderPlaceholder: !searchedValue,
+      title: searchedValue ? `Results for : ${searchedValue}` : 'Welcome'
     };
   }
 
-  onSearchChange = value => {
-    this.setState({ loadingResults: true });
-    getRepos(value)
-      .then(res => {
-        this.setState({ searchValue : value, resultsValue : res , loadingResults: false });
-      })
-      .catch(::console.error);
+  onSearchChange = (value) => {
+    this.props.transitionToList(value);
   }
 
   onLogoClick = () => {
-    this.setState({ searchValue : '', resultsValue: undefined , loadingResults: false });
+    this.props.backToMain();
   }
 
-  template({ searchValue, onSearchChange, resultsValue, onLogoClick, loadingResults }) {
+  templatePlaceholder = () => (
+    <FlexView
+      column
+      className="homepage"
+      vAlignContent='top'
+      hAlignContent='center'
+    >
+      <h1>Welcome to RepoHunter</h1>
+      <h3>The webapp that helps you find usefull information about your favourite repos</h3>
+      <img src="http://i.imgur.com/b5NX5ni.gif"/>
+    </FlexView>
+  );
+
+  template({ searchedValue, onSearchChange, onLogoClick, shouldRenderPlaceholder, title }) {
     return (
       <FlexView
         className='app'
@@ -57,13 +63,18 @@ export default class App extends React.Component {
         height='100%'
         hAlignContent='center'
       >
-        <NavBar onSearchChange={onSearchChange} searchValue={searchValue} onLogoClick={onLogoClick} />
+        <NavBar onSearchChange={onSearchChange} searchValue={searchedValue} onLogoClick={onLogoClick} />
         <FlexView
           className='results'
           grow
           width='100%'
         >
-          <ResultsPanel results={resultsValue} searchedValue={searchValue} loadingResults={loadingResults}/>
+          <Panel
+            type='floating'
+            header={{ title }}
+          >
+            {shouldRenderPlaceholder ? this.templatePlaceholder() : <RouteHandler/>}
+          </Panel>
         </FlexView>
       </FlexView>
     );

@@ -9,6 +9,6 @@ const router = Router.create({
 
 const mountNode = document.getElementById('app');
 
-router.run(Handler => {
-  React.render(<Handler router={router} />, mountNode);
+router.run((Handler, { params, query }) => {
+  React.render(<Handler router={router} params={params} query={query} />, mountNode);
 });

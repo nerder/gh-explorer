@@ -6,7 +6,7 @@ export default class ListRoute extends React.Component {
   render() {
     return (
       <div>
-        <ResultsPanel />
+        <ResultsPanel searchValue={this.props.params.query}/>
       </div>
       );
   }

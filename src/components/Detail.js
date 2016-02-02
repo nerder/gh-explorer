@@ -10,7 +10,7 @@ export default class Detail extends React.Component {
 
   getLocals() {
     const {
-      props : {
+      props: {
         detail
       }
     } = this;
