@@ -15,7 +15,7 @@ export default class ResultsPanel extends React.Component {
   constructor(props){
     super(props);
     this.scrollTo = () => {};
-    this.state = { results: undefined, loadingResults: false, needBackToTop: false };
+    this.state = { results: undefined, loadingResults: false, needBackToTop: false, errorHandled: undefined };
   }
 
   handleScroll = (event) => {
@@ -33,7 +33,8 @@ export default class ResultsPanel extends React.Component {
       state: {
         needBackToTop,
         loadingResults,
-        results
+        results,
+        errorHandled
       }
     } = this;
     return {
@@ -41,6 +42,7 @@ export default class ResultsPanel extends React.Component {
       results,
       loadingResults,
       needBackToTop,
+      errorHandled,
       scrollDuration: results ? Math.min(1500, results.length * 100) : 1500,
       handleScroll: this.handleScroll
     };
@@ -52,7 +54,9 @@ export default class ResultsPanel extends React.Component {
       .then(res => {
         this.setState({ results: res, loadingResults: false });
       })
-      .catch(::console.error);
+      .catch(err => {
+        this.setState({ results: undefined, errorHandled: err, loadingResults: false });
+      });
   }
 
   componentDidMount() {
@@ -65,7 +69,7 @@ export default class ResultsPanel extends React.Component {
     }
   }
 
-  template({ results, loadingResults, handleScroll, needBackToTop, scrollDuration, searchValue }){
+  template({ results, loadingResults, handleScroll, needBackToTop, scrollDuration, searchValue, errorHandled }){
     return (
       <div className="results-panel">
         <ScrollView
@@ -78,7 +82,7 @@ export default class ResultsPanel extends React.Component {
         {(scrollTo) => {
           this.scrollTo = scrollTo;
           return (
-            <List list={results} loading={loadingResults} searchValue={searchValue}/>
+            <List list={results} loading={loadingResults} searchValue={searchValue} errorHandled={errorHandled}/>
           );
         }
         }
