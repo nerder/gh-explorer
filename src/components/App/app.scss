@@ -2,4 +2,45 @@
   .results{
     max-width: 1000px;
   }
+  $color:#03A9F4;
+
+  .panel {
+    color:#212121;
+    border: 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    .panel-header{
+      background-color: $color;
+      z-index: 1;
+      min-height: 70px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+    .panel-header-title{
+      font-size: 22px;
+      letter-spacing: 0.7px;
+      font-weight: 400;
+    }
+    .homepage{
+      img{
+        height: 250px;
+      }
+    }
+    .back-to-top{
+      right: 0;
+      bottom: 0;
+      border: none;
+      background: $color;
+      cursor: pointer;
+      padding: 10px;
+      color: #fff;
+      border-radius: 100%;
+      margin: 15px;
+      box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 5px 0 rgba(0,0,0,0.2);
+      }
+    }
+  }
+
 }
