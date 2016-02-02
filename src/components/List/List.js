@@ -58,7 +58,7 @@ export default class List extends React.Component {
       vAlignContent='center'
       hAlignContent='center'
       grow
-      style={{ position:'relative', height: '60vh' }}
+      style={{ position: 'relative', height: '60vh' }}
     >
       <LoadingSpinner color='#03A9F4' />
     </FlexView>

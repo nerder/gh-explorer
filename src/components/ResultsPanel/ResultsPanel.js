@@ -55,7 +55,7 @@ export default class ResultsPanel extends React.Component {
             easing='easeInOutQuad'
             scrollX={false}
             scrollPropagation={false}
-            style={{ position: 'absolute', width: '100%', maxHeight:'100%' }}
+            style={{ position: 'absolute', width: '100%', maxHeight: '100%' }}
             onScroll={handleScroll}
           >
           {(scrollTo) => {
@@ -63,13 +63,13 @@ export default class ResultsPanel extends React.Component {
             return (
               <List list={results} loading={loadingResults} />
             );
-            }
+          }
           }
           </ScrollView>
           {needBackToTop && (
             <button
               className="back-to-top"
-              style={{ position:'absolute' }}
+              style={{ position: 'absolute' }}
               onClick={()=> this.scrollTo(0, 0, scrollDuration )}
             >
               <i className="fa fa-arrow-up" />
