@@ -41,7 +41,7 @@ export default class App extends React.Component {
     this.props.backToMain();
   }
 
-  templatePlaceholder = () =>(
+  templatePlaceholder = () => (
     <FlexView
       column
       className="homepage"

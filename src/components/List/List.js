@@ -29,7 +29,7 @@ export default class List extends React.Component {
     };
   }
 
-  templateNoResults = () =>(
+  templateNoResults = () => (
       <FlexView
         column
         className="not-found"
@@ -53,10 +53,10 @@ export default class List extends React.Component {
     </FlexView>
   );
 
-  templateList = ({ list , searchValue }) =>(
+  templateList = ({ list, searchValue }) => (
     <div>
     {
-      list.map( (el,i) => {
+      list.map( (el, i) => {
         return(
           <ResultRow key={i} result={el} searchValue={searchValue}/>
         );
@@ -66,7 +66,6 @@ export default class List extends React.Component {
   );
 
   template({ list, loading, shouldRenderNoResults, shouldRenderResults, searchValue }) {
-    console.log("List");
     return (
       <div className="list">
         {shouldRenderNoResults && !loading && this.templateNoResults()}

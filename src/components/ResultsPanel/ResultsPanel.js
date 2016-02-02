@@ -50,7 +50,7 @@ export default class ResultsPanel extends React.Component {
     this.setState({ loadingResults: true });
     getRepos(searchValue)
       .then(res => {
-        this.setState({ results: res , loadingResults: false });
+        this.setState({ results: res, loadingResults: false });
       })
       .catch(::console.error);
   }
@@ -85,7 +85,7 @@ export default class ResultsPanel extends React.Component {
           <button
             className="back-to-top"
             style={{ position: 'absolute' }}
-            onClick={()=> this.scrollTo(0, 0, scrollDuration )}
+            onClick={() => this.scrollTo(0, 0, scrollDuration )}
           >
             <i className="fa fa-arrow-up" />
           </button>
