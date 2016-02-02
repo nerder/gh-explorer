@@ -67,7 +67,7 @@ export default class ResultsPanel extends React.Component {
 
   template({ results, loadingResults, handleScroll, needBackToTop, scrollDuration, searchValue }){
     return (
-      <div>
+      <div className="results-panel">
         <ScrollView
           easing='easeInOutQuad'
           scrollX={false}
