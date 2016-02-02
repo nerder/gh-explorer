@@ -55,12 +55,14 @@ export default class ResultsPanel extends React.Component {
       .catch(::console.error);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.getRepos(this.props.searchValue);
   }
 
   componentWillReceiveProps(newProps) {
-    this.getRepos(newProps.searchValue);
+    if (newProps.searchValue !== this.props.searchValue) {
+      this.getRepos(newProps.searchValue);
+    }
   }
 
   template({ results, loadingResults, handleScroll, needBackToTop, scrollDuration, searchValue }){
