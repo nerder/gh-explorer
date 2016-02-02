@@ -9,7 +9,8 @@ import './list.scss';
 @props({
   list: t.maybe(t.Array),
   loading: t.Boolean,
-  searchValue: t.String
+  searchValue: t.String,
+  errorHandled: t.maybe(t.Object)
 })
 export default class List extends React.Component {
 
@@ -17,15 +18,20 @@ export default class List extends React.Component {
     const {
       list,
       loading,
-      searchValue
+      searchValue,
+      errorHandled
     } = this.props;
 
     return {
       list,
       loading,
       searchValue,
+      errorHandled,
       shouldRenderNoResults: !!list && list.length === 0,
-      shouldRenderResults: !!list && list.length > 0
+      shouldRenderResults: !!list && list.length > 0,
+      shouldRenderErrors: !list && !!errorHandled,
+      errorStatus: errorHandled ? errorHandled.status : errorHandled,
+      errorMessage: errorHandled ? errorHandled.data.message : errorHandled
     };
   }
 
@@ -65,12 +71,26 @@ export default class List extends React.Component {
     </div>
   );
 
-  template({ list, loading, shouldRenderNoResults, shouldRenderResults, searchValue }) {
+  templateError = ({ errorStatus, errorMessage }) => (
+    <FlexView
+      column
+      className="error"
+      vAlignContent='top'
+      hAlignContent='center'
+    >
+      <h1>Ops! We got an error {errorStatus}</h1>
+      <h3>{errorMessage}</h3>
+      <img src='http://i.imgur.com/AeBTzKY.png'/>
+    </FlexView>
+);
+
+  template({ list, loading, shouldRenderNoResults, shouldRenderResults, shouldRenderErrors, searchValue, errorStatus, errorMessage }) {
     return (
       <div className="list">
         {shouldRenderNoResults && !loading && this.templateNoResults()}
         {loading && this.templateLoading()}
         {shouldRenderResults && !loading && this.templateList({ list, searchValue })}
+        {shouldRenderErrors && !loading && this.templateError({ errorStatus, errorMessage })}
       </div>
     );
   }
