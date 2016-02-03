@@ -35,11 +35,11 @@ export default class App extends React.Component {
 
   onSearchChange = (value) => {
     this.props.transitionToList(value);
-  }
+  };
 
   onLogoClick = () => {
     this.props.backToMain();
-  }
+  };
 
   templatePlaceholder = () => (
     <FlexView

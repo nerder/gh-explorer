@@ -25,7 +25,7 @@ export default class SearchBar extends React.Component {
 
   onSearch = () => {
     this.props.onChange(this.state.currentValue);
-  }
+  };
 
   getLocals() {
     const onSearch = this.onSearch;

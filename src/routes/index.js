@@ -8,7 +8,7 @@ import NotFound from './NotFoundRoute';
 export default (
   <Route name="main" path="/" handler={App}>
     <Route name="list" path="search/:query" handler={List}>
-      <Route name="details" path="detail/:detailId" handler={Detail} />
+      <Route name="details" path="detail/:detailId/:owner/:repo" handler={Detail} />
     </Route>
     <NotFoundRoute handler={NotFound} />
   </Route>

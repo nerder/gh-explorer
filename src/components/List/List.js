@@ -36,17 +36,17 @@ export default class List extends React.Component {
   }
 
   templateNoResults = () => (
-      <FlexView
-        column
-        className="not-found"
-        vAlignContent='top'
-        hAlignContent='center'
-      >
-        <h1>404</h1>
-        <h3>We are sorry, we are not able to find out nothing related to this. </h3>
-        <img src="http://cdn.meme.am/instances/500x/60359423.jpg"/>
-      </FlexView>
-    );
+    <FlexView
+      column
+      className="not-found"
+      vAlignContent='top'
+      hAlignContent='center'
+    >
+      <h1>404</h1>
+      <h3>We are sorry, we are not able to find out nothing related to this. </h3>
+      <img src="http://cdn.meme.am/instances/500x/60359423.jpg"/>
+    </FlexView>
+  );
 
   templateLoading = () => (
     <FlexView

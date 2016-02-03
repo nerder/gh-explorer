@@ -23,7 +23,7 @@ export default class ResultsPanel extends React.Component {
     if (this.state.needBackToTop !==  newNeedBackToTop) {
       this.setState({ needBackToTop: newNeedBackToTop });
     }
-  }
+  };
 
   getLocals() {
     const {
@@ -100,5 +100,4 @@ export default class ResultsPanel extends React.Component {
       </div>
     );
   }
-
 }
