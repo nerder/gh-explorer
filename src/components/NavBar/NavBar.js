@@ -41,6 +41,7 @@ export default class NavBar extends React.Component {
     const leftProps = {
       onLogoClick
     };
+
     const searchBarProps = {
       searchValue,
       onSearchChange

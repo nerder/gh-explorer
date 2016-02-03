@@ -8,6 +8,6 @@ export default class ListRoute extends React.Component {
       <div>
         <ResultsPanel searchValue={this.props.params.query}/>
       </div>
-      );
+    );
   }
 }
