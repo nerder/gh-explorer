@@ -1,5 +1,5 @@
 import React from 'react';
-import Detail from 'components/Detail';
+import Detail from 'Detail/Detail';
 
 export default class DetailRoute extends React.Component {
 

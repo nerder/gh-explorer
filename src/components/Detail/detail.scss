@@ -1,0 +1,36 @@
+.detail {
+  padding: 20px;
+  background-color: #fff;
+  line-height: 1.5rem;
+  color:#212121;
+  border: 0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 2px;
+  h2{
+    font-size: 28px;
+    letter-spacing: 0.9px;
+    font-weight: 700;
+    padding-bottom: 2px;
+    border-bottom: 2px dotted #B6B6B6;
+  }
+  h3{
+    letter-spacing: 0.9px;
+    font-weight: 700;
+    line-height: 1.1rem;
+    padding-bottom: 2px;
+    border-bottom: 2px dotted #B6B6B6;
+  }
+  h2:hover{
+    border-bottom-color: #03A9F4;
+  }
+  p{
+    letter-spacing: 0.7px;
+    margin-top: -10px;
+    font-size: 14px;
+    color: #727272;
+  }
+  img {
+    height: 150px;
+    border-radius: 50%;
+  }
+}
