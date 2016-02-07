@@ -1,4 +1,5 @@
 $color: #03A9F4;
+$break-small: 420px;
 
 .searchBar{
   input::-webkit-input-placeholder, button {
@@ -29,6 +30,9 @@ $color: #03A9F4;
         transform: translateY(-20px);
         visibility: visible !important;
       }
+    }
+    @media screen and (max-width: $break-small) {
+      width: 200px;
     }
   }
   button {
